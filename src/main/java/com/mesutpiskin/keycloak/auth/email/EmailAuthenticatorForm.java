@@ -46,7 +46,7 @@ public class EmailAuthenticatorForm extends AbstractUsernameFormAuthenticator {
                 form.setError(error);
             }
         }
-        Response response = form.createForm("email-verification-with-code.ftl");
+        Response response = form.createForm("email-verification-with-code-form.ftl");
         context.challenge(response);
         return response;
     }
