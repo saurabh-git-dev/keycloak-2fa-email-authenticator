@@ -171,7 +171,7 @@ public class EmailAuthenticatorForm extends AbstractUsernameFormAuthenticator {
             emailProvider.setRealm(realm);
             emailProvider.setUser(user);
             // Don't forget to add the welcome-email.ftl (html and text) template to your theme.
-            emailProvider.send("emailCodeSubject", subjectParams, "code-email.ftl", mailBodyAttributes);
+            emailProvider.send("emailCodeSubject", subjectParams, "email-verification-with-code.ftl", mailBodyAttributes);
         } catch (EmailException eex) {
             log.errorf(eex, "Failed to send access code email. realm=%s user=%s", realm.getId(), user.getUsername());
         }
