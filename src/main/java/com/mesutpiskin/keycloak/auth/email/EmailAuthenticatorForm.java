@@ -84,13 +84,15 @@ public class EmailAuthenticatorForm extends AbstractUsernameFormAuthenticator {
         }
 
         MultivaluedMap<String, String> formData = context.getHttpRequest().getDecodedFormParameters();
-        if (formData.containsKey("resend")) {
+        String action = formData.getFirst("action");
+
+        if ("resend".equals(action)) {
             resetEmailCode(context);
             challenge(context, null);
             return;
         }
 
-        if (formData.containsKey("cancel")) {
+        if ("cancel".equals(action)) {
             resetEmailCode(context);
             context.resetFlow();
             return;
